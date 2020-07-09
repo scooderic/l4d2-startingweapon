@@ -11,7 +11,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "L4D2 Starting Weapon",
-    version = "1.1",
+    version = "2.1",
     url = "https://github.com/scooderic"
 };
 
@@ -37,7 +37,7 @@ public void OnClientPutInServer(int client)
 {
     if (!IsFakeClient(client))
     {
-        CreateTimer(10.0, Timer_GiveWeapon, client);
+        CreateTimer(2.0, Timer_GiveWeapon, client, TIMER_REPEAT);
     }
 }
 
@@ -57,8 +57,14 @@ public Action Timer_GiveWeapon(Handle timer, any client)
             {
                 QuickCheat(client, "give", "rifle_m60");
             }
+            return Plugin_Continue;
+        }
+        else
+        {
+            return Plugin_Stop;
         }
     }
+    PrintToChat(client, "\x04[StartingWeapon]\x03 Failed to give weapon, not in coop mode (see sm_cvar mp_gamemode), or not in game.");
     return Plugin_Stop;
 }
 
