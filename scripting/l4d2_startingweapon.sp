@@ -11,7 +11,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "L4D2 Starting Weapon",
-    version = "2.1",
+    version = "2.2",
     url = "https://github.com/scooderic"
 };
 
@@ -68,56 +68,73 @@ public Action Timer_GiveWeapon(Handle timer, any client)
     return Plugin_Stop;
 }
 
-// T1 weapon (4): 76%
-// T2 weapon (7): 14%
+// T1 weapons (4): 72%
+// T2 weapons (7): 14%
+// International weapons (4): 4%
 // Grenade Launcher: 3%
 // M60: 7%
 void RandomWeapon()
 {
     int r = GetRandomInt(0, 99);
-    if (r < 19)
+    if (r < 18)
     {
         g_WeaponId = "smg";
     }
-    else if (r < 38)
+    else if (r < 36)
     {
         g_WeaponId = "smg_silenced";
     }
-    else if (r < 57)
+    else if (r < 54)
     {
         g_WeaponId = "pumpshotgun";
     }
-    else if (r < 76)
+    else if (r < 72)
     {
         g_WeaponId = "shotgun_chrome";
     }
-    else if (r < 78)
+    else if (r < 74)
     {
         g_WeaponId = "rifle";
     }
-    else if (r < 80)
+    else if (r < 76)
     {
         g_WeaponId = "rifle_desert";
     }
-    else if (r < 82)
+    else if (r < 78)
     {
         g_WeaponId = "rifle_ak47";
     }
-    else if (r < 84)
+    else if (r < 80)
     {
         g_WeaponId = "autoshotgun";
     }
-    else if (r < 86)
+    else if (r < 82)
     {
         g_WeaponId = "shotgun_spas";
     }
-    else if (r < 88)
+    else if (r < 84)
     {
         g_WeaponId = "hunting_rifle";
     }
-    else if (r < 90)
+    else if (r < 86)
     {
         g_WeaponId = "sniper_military";
+    }
+    else if (r < 87)
+    {
+        g_WeaponId = "smg_mp5";
+    }
+    else if (r < 88)
+    {
+        g_WeaponId = "rifle_sg552";
+    }
+    else if (r < 89)
+    {
+        g_WeaponId = "sniper_scout";
+    }
+    else if (r < 90)
+    {
+        g_WeaponId = "sniper_awp";
     }
     else if (r < 93)
     {
