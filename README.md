@@ -1,6 +1,6 @@
 # l4d2-startingweapon
 
-A sourcemod plugin for Left 4 Dead 2 Dedicated Server, which gives client a weapon at the beginning of the map.
+A sourcemod plugin for Left 4 Dead 2 Dedicated Server, which gives client weapon at the beginning of a map.
 
 L4D2 服务器初始武器插件。
 
