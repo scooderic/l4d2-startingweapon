@@ -2,6 +2,29 @@
 #include <sourcemod>
 #include <sdktools>
 
+const int CoopGMCount = 19;
+char CoopGameModes[][] = {
+	"coop", //Coop
+	"realism", //Realism coop
+	"mutation2", //Headshot!
+	"mutation3", //Bleed Out
+	"mutation4", //Hard Eight
+	"mutation5", //Four Swordsmen
+	"mutation7", //Chainsaw Massacre
+	"hardcore", //Ironman realism
+	"mutation9", //Last Gnome On Earth
+	"m60s", //Gib Fest
+	"mutation16", //Hunting Party
+	"mutation20", //Healing Gnome
+	"community1", //Special Delivery
+	"community2", //Flu Season
+	"community5", //Death's Door
+	"l4d1coop", //Left 4 Dead 1 Coop
+	"holdout", //Holdout
+	"dash", //Dash
+	"shootzones" //Shootzones
+};
+
 char g_GameMode[24];
 bool g_IsCoop = false;
 char g_WeaponId[48];
@@ -23,14 +46,14 @@ public void OnMapStart()
 {
     g_IsCoop = false;
     GetConVarString(FindConVar("mp_gamemode"), g_GameMode, sizeof(g_GameMode));
-    if (StrEqual(g_GameMode, "coop", true))
-    {
-        g_IsCoop = true;
-    }
-    if (StrEqual(g_GameMode, "realism", true))
-    {
-        g_IsCoop = true;
-    }
+    for (int i = 0; i < CoopGMCount; i++)
+	{
+		if (StrEqual(g_GameMode, CoopGameModes[i], true))
+		{
+			g_IsCoop = true;
+			break;
+		}
+	}
 }
 
 public void OnClientPutInServer(int client)
