@@ -2,18 +2,18 @@
 #include <sourcemod>
 #include <sdktools>
 
-const int g_CoopGMCount = 19;
+const int g_CoopGMCount = 17;
 char g_CoopGameModes[][] = {
     "coop", // Coop
     "realism", // Realism coop
     "mutation2", // Headshot!
     "mutation3", // Bleed Out
     "mutation4", // Hard Eight
-    "mutation5", // Four Swordsmen
-    "mutation7", // Chainsaw Massacre
+    //"mutation5", // Four Swordsmen
+    //"mutation7", // Chainsaw Massacre
     "hardcore", // Ironman realism
     "mutation9", // Last Gnome On Earth
-    "m60s", // Gib Fest
+    //"m60s", // Gib Fest
     "mutation16", // Hunting Party
     "mutation20", // Healing Gnome
     "community1", // Special Delivery
@@ -22,7 +22,9 @@ char g_CoopGameModes[][] = {
     "l4d1coop", // Left 4 Dead 1 Coop
     "holdout", // Holdout
     "dash", // Dash
-    "shootzones" // Shootzones
+    "shootzones", // Shootzones
+    "tankrun" // Tank Run
+    //"rocketdude" // RocketDude
 };
 
 char g_GameMode[24];
@@ -34,7 +36,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "L4D2 Starting Weapon",
-    version = "2.4",
+    version = "2.5",
     url = "https://github.com/scooderic"
 };
 
