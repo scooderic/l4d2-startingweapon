@@ -2,27 +2,27 @@
 #include <sourcemod>
 #include <sdktools>
 
-const int CoopGMCount = 19;
-char CoopGameModes[][] = {
-	"coop", //Coop
-	"realism", //Realism coop
-	"mutation2", //Headshot!
-	"mutation3", //Bleed Out
-	"mutation4", //Hard Eight
-	"mutation5", //Four Swordsmen
-	"mutation7", //Chainsaw Massacre
-	"hardcore", //Ironman realism
-	"mutation9", //Last Gnome On Earth
-	"m60s", //Gib Fest
-	"mutation16", //Hunting Party
-	"mutation20", //Healing Gnome
-	"community1", //Special Delivery
-	"community2", //Flu Season
-	"community5", //Death's Door
-	"l4d1coop", //Left 4 Dead 1 Coop
-	"holdout", //Holdout
-	"dash", //Dash
-	"shootzones" //Shootzones
+const int g_CoopGMCount = 19;
+char g_CoopGameModes[][] = {
+    "coop", // Coop
+    "realism", // Realism coop
+    "mutation2", // Headshot!
+    "mutation3", // Bleed Out
+    "mutation4", // Hard Eight
+    "mutation5", // Four Swordsmen
+    "mutation7", // Chainsaw Massacre
+    "hardcore", // Ironman realism
+    "mutation9", // Last Gnome On Earth
+    "m60s", // Gib Fest
+    "mutation16", // Hunting Party
+    "mutation20", // Healing Gnome
+    "community1", // Special Delivery
+    "community2", // Flu Season
+    "community5", // Death's Door
+    "l4d1coop", // Left 4 Dead 1 Coop
+    "holdout", // Holdout
+    "dash", // Dash
+    "shootzones" // Shootzones
 };
 
 char g_GameMode[24];
@@ -34,7 +34,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "L4D2 Starting Weapon",
-    version = "2.3",
+    version = "2.4",
     url = "https://github.com/scooderic"
 };
 
@@ -46,14 +46,14 @@ public void OnMapStart()
 {
     g_IsCoop = false;
     GetConVarString(FindConVar("mp_gamemode"), g_GameMode, sizeof(g_GameMode));
-    for (int i = 0; i < CoopGMCount; i++)
-	{
-		if (StrEqual(g_GameMode, CoopGameModes[i], true))
-		{
-			g_IsCoop = true;
-			break;
-		}
-	}
+    for (int i = 0; i < g_CoopGMCount; i ++)
+    {
+        if (StrEqual(g_GameMode, g_CoopGameModes[i], true))
+        {
+            g_IsCoop = true;
+            break;
+        }
+    }
 }
 
 public void OnClientPutInServer(int client)
@@ -71,8 +71,8 @@ public Action Timer_GiveWeapon(Handle timer, any client)
         if (IsClientObserver(client))
         {
             return Plugin_Continue;
-        } 
-        else 
+        }
+        else
         {
             int weaponIndex = GetPlayerWeaponSlot(client, 0);
             if (weaponIndex == -1)
