@@ -86,7 +86,7 @@ public Action Timer_GiveWeapon(Handle timer, any client)
                 }
                 else
                 {
-                    QuickCheat(client, "give", "rifle_m60");
+                    QuickCheat(client, "give", "weapon_rifle_m60");
                 }
                 return Plugin_Continue;
             }
@@ -100,64 +100,85 @@ public Action Timer_GiveWeapon(Handle timer, any client)
     return Plugin_Stop;
 }
 
-// T1 weapons (4): 76%
-// T2 weapons (7): 14%
+// T1 weapons (5): 64%
+//   smg (3): 32%
+//     uzi: 13%
+//     smg: 13%
+//     mp5: 6%
+//   shotgun(2): 32%
+// T2 weapons (10): 30%
 // Grenade Launcher: 3%
-// M60: 7%
+// M60: 3%
 void RandomWeapon()
 {
     int r = GetRandomInt(0, 99);
-    if (r < 19)
+    if (r < 13)
     {
-        g_WeaponId = "smg";
+        g_WeaponId = "weapon_smg";
     }
-    else if (r < 38)
+    else if (r < 26)
     {
-        g_WeaponId = "smg_silenced";
+        g_WeaponId = "weapon_smg_silenced";
     }
-    else if (r < 57)
+    else if (r < 32)
     {
-        g_WeaponId = "pumpshotgun";
+        g_WeaponId = "weapon_smg_mp5";
+    }
+    else if (r < 48)
+    {
+        g_WeaponId = "weapon_pumpshotgun";
+    }
+    else if (r < 64)
+    {
+        g_WeaponId = "weapon_shotgun_chrome";
+    }
+    else if (r < 67)
+    {
+        g_WeaponId = "weapon_rifle";
+    }
+    else if (r < 70)
+    {
+        g_WeaponId = "weapon_rifle_desert";
+    }
+    else if (r < 73)
+    {
+        g_WeaponId = "weapon_rifle_ak47";
     }
     else if (r < 76)
     {
-        g_WeaponId = "shotgun_chrome";
+        g_WeaponId = "weapon_autoshotgun";
     }
-    else if (r < 78)
+    else if (r < 79)
     {
-        g_WeaponId = "rifle";
-    }
-    else if (r < 80)
-    {
-        g_WeaponId = "rifle_desert";
+        g_WeaponId = "weapon_shotgun_spas";
     }
     else if (r < 82)
     {
-        g_WeaponId = "rifle_ak47";
+        g_WeaponId = "weapon_hunting_rifle";
     }
-    else if (r < 84)
+    else if (r < 85)
     {
-        g_WeaponId = "autoshotgun";
-    }
-    else if (r < 86)
-    {
-        g_WeaponId = "shotgun_spas";
+        g_WeaponId = "weapon_sniper_military";
     }
     else if (r < 88)
     {
-        g_WeaponId = "hunting_rifle";
+        g_WeaponId = "weapon_rifle_sg552";
     }
-    else if (r < 90)
+    else if (r < 91)
     {
-        g_WeaponId = "sniper_military";
+        g_WeaponId = "weapon_sniper_awp";
     }
-    else if (r < 93)
+    else if (r < 94)
+    {
+        g_WeaponId = "weapon_sniper_scout";
+    }
+    else if (r < 97)
     {
         g_WeaponId = "weapon_grenade_launcher";
     }
     else
     {
-        g_WeaponId = "rifle_m60";
+        g_WeaponId = "weapon_rifle_m60";
     }
 }
 
