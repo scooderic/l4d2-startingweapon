@@ -18,7 +18,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "L4D2 Starting Weapon",
-    version = "3.0",
+    version = "3.1",
     url = "https://github.com/scooderic"
 };
 
