@@ -67,15 +67,7 @@ public Action Timer_GiveWeapon(Handle timer, any client)
             int weaponIndex = GetPlayerWeaponSlot(client, 0);
             if (weaponIndex == -1)
             {
-                int index = GetRandomWeaponIndex();
-                if (index >= 0 && index < g_WeaponCount)
-                {
-                    QuickGive(client, g_Weapons[index]);
-                }
-                else
-                {
-                    QuickGive(client, "rifle_m60");
-                }
+                QuickGive(client, g_Weapons[RandomWeaponIndex()]);
                 return Plugin_Continue;
             }
             else
@@ -87,7 +79,7 @@ public Action Timer_GiveWeapon(Handle timer, any client)
     return Plugin_Stop;
 }
 
-int GetRandomWeaponIndex()
+int RandomWeaponIndex()
 {
     int v = GetRandomInt(1, g_TotalWeight);
     for (int i = 0; i < g_WeaponCount; i ++)
