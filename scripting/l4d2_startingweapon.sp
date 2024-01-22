@@ -41,13 +41,13 @@ char g_Weapons[][] =
 int g_TotalWeight = 0;
 int g_Weights[] =
 {
-    45, 45,
-    30, 30, 30,
-    4, 4,
-    4, 4,
-    4, 4, 4, 4,
-    4, 4,
-    4, 6
+    75, 75,
+    60, 60, 30,
+    12, 12,
+    12, 12,
+    12, 12, 12, 12,
+    12, 12,
+    12, 18
 };
 
 char g_GameMode[24];
@@ -59,7 +59,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "To avoid you starting empty-handed.",
-    version = "4.0.1",
+    version = "4.0.2",
     url = "https://github.com/scooderic"
 };
 
@@ -172,7 +172,7 @@ int RandomWeaponIndex()
             v -= g_Weights[i];
         }
     }
-    return g_WeaponCount - 1;
+    return (g_WeaponCount - 1);
 }
 
 void QuickGive(int client, char[] item)
